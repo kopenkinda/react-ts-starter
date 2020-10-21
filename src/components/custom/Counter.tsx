@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useGlobalState } from '../../hooks/useGlobalState';
 import { Button } from '../core/Button';
 
 export const Counter = () => {
-  const [ count, setCount ] = useState( 0 );
+  const { globalState, setGlobalState } = useGlobalState();
   return (
     <div>
-      <p>Count is { count }</p>
-      <Button onClick={ () => setCount( count - 1 ) }>
+      <p>Count is { globalState.counter }</p>
+      <Button onClick={ () => setGlobalState( {
+        ...globalState,
+        counter: globalState.counter - 1
+      } ) }>
         Decrement
       </Button>
-      <Button onClick={ () => setCount( count + 1 ) }>
+      <Button onClick={ () => setGlobalState( {
+        ...globalState,
+        counter: globalState.counter + 1
+      } ) }>
         Increment
       </Button>
     </div >

@@ -11,6 +11,7 @@ import styles from './App.module.scss';
 import './styles/global/typography.scss';
 
 const App: React.FC = () => {
+
   return (
     <React.StrictMode>
       <GlobalState>
